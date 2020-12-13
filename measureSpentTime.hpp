@@ -1,4 +1,5 @@
 #include <chrono>
+#include <functional>
 
 enum class MeasureTimeType{
     NanoSeconds,
@@ -9,10 +10,10 @@ enum class MeasureTimeType{
     Hours
 };
 
-template<class Functor>
-auto measureSpentTime(Functor func,MeasureTimeType measureTimeType=MeasureTimeType::NanoSeconds)->std::chrono::time_point<std::chrono::high_resolution_clock>::rep{ // You can use this function with std::bind function for void parameter -> "func()".
+template<class Functor,class... TArgs>
+auto measureSpentTime(MeasureTimeType measureTimeType,Functor func,TArgs&&... args)->std::chrono::time_point<std::chrono::high_resolution_clock>::rep{
     auto start = std::chrono::high_resolution_clock::now();
-    func();
+    func(std::forward<TArgs>(args)...);
     auto end=std::chrono::high_resolution_clock::now();
     auto spentTime=-1LL;
     switch (measureTimeType)
