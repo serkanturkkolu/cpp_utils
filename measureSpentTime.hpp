@@ -1,3 +1,6 @@
+#ifndef _MEASURE_SPENT_TIME_HPP_
+#define _MEASURE_SPENT_TIME_HPP_
+
 #include <chrono>
 #include <functional>
 
@@ -39,3 +42,4 @@ auto measureSpentTime(MeasureTimeType measureTimeType,Functor func,TArgs&&... ar
     } 
     return spentTime;
 }
+#endif
