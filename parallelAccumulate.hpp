@@ -1,5 +1,5 @@
-#ifndef _PARALLEL_ACCUMULATE_H_
-#define _PARALLEL_ACCUMULATE_H_
+#ifndef _PARALLEL_ACCUMULATE_HPP_
+#define _PARALLEL_ACCUMULATE_HPP_
 #include <numeric>  
 #include <future> 
 
