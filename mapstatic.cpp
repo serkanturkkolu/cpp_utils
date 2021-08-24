@@ -1,4 +1,5 @@
 #include <cstring>
+#include <exception>
 
 namespace Util{
     namespace Container {
